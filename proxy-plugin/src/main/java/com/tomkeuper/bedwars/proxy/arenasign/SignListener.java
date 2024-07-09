@@ -106,6 +106,11 @@ public class SignListener implements Listener {
         if (e.getLines().length == 0) return;
         if (Objects.requireNonNull(e.getLine(0)).equalsIgnoreCase("[bw]")) {
 
+            if (!e.getPlayer().hasPermission("bw.sign.join")) {
+                e.getPlayer().sendMessage(ChatColor.RED + "You do not have permission to join this game.");
+                return;
+            }
+
             List<String> s = new ArrayList<>(SignManager.get().getConfig().getList(ConfigPath.SIGNS_LIST_PATH));
 
             if (e.getLines().length < 2 || e.getLines()[1].isEmpty()) {
