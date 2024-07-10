@@ -23,10 +23,11 @@ public class MainCommand extends ParentCommand {
         super(name);
         instance = this;
         setAliases(Collections.singletonList("bedwars"));
-        addSubCommand(new SelectorCMD("gui", ""));
+        addSubCommand(new SelectorCMD("gui", "bw.gui"));
         addSubCommand(new LangCMD("lang", ""));
         addSubCommand(new LangCMD("language", ""));
-        addSubCommand(new JoinCMD("join", ""));
+        addSubCommand(new JoinCMD("join", "bw.join"));
+        addSubCommand()
         addSubCommand(new ReJoinCMD("rejoin", "bw.rejoin"));
         addSubCommand(new TpCommand("tp", "bw.tp"));
     }
