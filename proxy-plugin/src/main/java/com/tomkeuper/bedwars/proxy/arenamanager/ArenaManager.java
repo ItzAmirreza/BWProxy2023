@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ArenaManager implements BedWars.ArenaUtil {
 
@@ -35,8 +36,7 @@ public class ArenaManager implements BedWars.ArenaUtil {
     }
 
     public CachedArena getArena(String server, String remoteIdentifier) {
-
-        List<CachedArena> arenaList = getArenas();
+        List<CachedArena> arenaList = new CopyOnWriteArrayList<>(getArenas());
 
         for (CachedArena ca : arenaList) {
             if (ca.getServer().equals(server) && ca.getRemoteIdentifier().equals(remoteIdentifier)) return ca;
