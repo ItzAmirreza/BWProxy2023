@@ -27,7 +27,6 @@ public class MainCommand extends ParentCommand {
         addSubCommand(new LangCMD("lang", ""));
         addSubCommand(new LangCMD("language", ""));
         addSubCommand(new JoinCMD("join", "bw.join"));
-        addSubCommand()
         addSubCommand(new ReJoinCMD("rejoin", "bw.rejoin"));
         addSubCommand(new TpCommand("tp", "bw.tp"));
     }
