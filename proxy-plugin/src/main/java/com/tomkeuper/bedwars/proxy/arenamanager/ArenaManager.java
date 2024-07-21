@@ -6,6 +6,7 @@ import com.tomkeuper.bedwars.proxy.BedWarsProxy;
 import com.tomkeuper.bedwars.proxy.configuration.ConfigPath;
 import com.tomkeuper.bedwars.proxy.language.LanguageManager;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -36,10 +37,13 @@ public class ArenaManager implements BedWars.ArenaUtil {
     }
 
     public CachedArena getArena(String server, String remoteIdentifier) {
-        List<CachedArena> arenaList = new CopyOnWriteArrayList<>(getArenas());
-
-        for (CachedArena ca : arenaList) {
-            if (ca.getServer().equals(server) && ca.getRemoteIdentifier().equals(remoteIdentifier)) return ca;
+        try {
+            List<CachedArena> arenaList = new CopyOnWriteArrayList<>(getArenas());
+            for (CachedArena ca : arenaList) {
+                if (ca.getServer().equals(server) && ca.getRemoteIdentifier().equals(remoteIdentifier)) return ca;
+            }
+        }catch (ConcurrentModificationException e){
+            Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&',"&c[Error] &f"+e.getMessage()));
         }
         return null;
     }

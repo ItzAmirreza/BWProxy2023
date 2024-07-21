@@ -37,20 +37,17 @@ public class MainCommand extends ParentCommand {
         Player p = (Player) s;
 
         s.sendMessage(" ");
-        s.sendMessage("§8§l|-" + " §6" + BedWarsProxy.getPlugin().getDescription().getName() + " v" + BedWarsProxy.getPlugin().getDescription().getVersion() + " §7- §cCommands");
+        s.sendMessage(" §d▶ §fWelcome to the Sakura §cBed§fWars");
+        s.sendMessage(" §5● §d /party§f for party system");
+        s.sendMessage(" §5● §d /stats§f see your stats");
+        s.sendMessage(" §5● §d /private §f play private games");
+        s.sendMessage(" §5● §d /cosmetic§f manage your cosmetics");
         s.sendMessage(" ");
-        if (hasSubCommand("gui")) {
-            p.spigot().sendMessage(BedWarsProxy.createTC(Language.getMsg(p, Messages.COMMAND_GUI_DISPLAY), "/bw gui", Language.getMsg(p, Messages.COMMAND_GUI_HOVER)));
-        }
-        if (hasSubCommand("lang")) {
-            p.spigot().sendMessage(BedWarsProxy.createTC(Language.getMsg(p, Messages.COMMAND_LANGUAGE_DISPLAY), "/bw lang", Language.getMsg(p, Messages.COMMAND_LANGUAGE_HOVER)));
-        }
-        if (hasSubCommand("rejoin")) {
-            p.spigot().sendMessage(BedWarsProxy.createTC(Language.getMsg(p, Messages.COMMAND_REJOIN_DISPLAY), "/bw rejoin", Language.getMsg(p, Messages.COMMAND_REJOIN_HOVER)));
-        }
-        if (hasSubCommand("tp") && getSubCommand("tp").hasPermission(s)) {
-            p.spigot().sendMessage(BedWarsProxy.createTC(Language.getMsg(p, Messages.COMMAND_TP_DISPLAY), "/bw tp", Language.getMsg(p, Messages.COMMAND_TP_HOVER)));
-        }
+        if (hasSubCommand("gui")) p.spigot().sendMessage(BedWarsProxy.createTC(Language.getMsg(p, Messages.COMMAND_GUI_DISPLAY), "/bw gui", Language.getMsg(p, Messages.COMMAND_GUI_HOVER)));
+        if (hasSubCommand("lang")) p.spigot().sendMessage(BedWarsProxy.createTC(Language.getMsg(p, Messages.COMMAND_LANGUAGE_DISPLAY), "/bw lang", Language.getMsg(p, Messages.COMMAND_LANGUAGE_HOVER)));
+        if (hasSubCommand("rejoin")) p.spigot().sendMessage(BedWarsProxy.createTC(Language.getMsg(p, Messages.COMMAND_REJOIN_DISPLAY), "/bw rejoin", Language.getMsg(p, Messages.COMMAND_REJOIN_HOVER)));
+        if (hasSubCommand("tp") && getSubCommand("tp").hasPermission(s)) p.spigot().sendMessage(BedWarsProxy.createTC(Language.getMsg(p, Messages.COMMAND_TP_DISPLAY), "/bw tp", Language.getMsg(p, Messages.COMMAND_TP_HOVER)));
+
     }
 
     public static MainCommand getInstance() {
